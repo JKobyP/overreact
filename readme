@@ -1,4 +1,22 @@
-Dependencies:
-    Requires the reactome mapping file: Ensembl2Reactome.txt
+# overreact
+## Dependencies:
+    1. Reactome mapping file: Ensembl2Reactome.txt
+        ```wget http://www.reactome.org/download/current/Ensembl2Reactome.txt
+
+    2. Running neo4j database with default settings (version 3.1)
+        Information available at http://www.reactome.org/pages/download-data/
+        under Graph Database. First, import the data by copying and pasting the
+        extracted tarball into the proper directory in your neo4j install. Then,
+        start the console.
+
+    3. Python bindings for neo4j
+        ```pip install neo4j-driver
 
 
+## Example usage:
+    knownlist.txt   - a list of ensembl names (~10) which are known to be
+                    associated with a particular phenotype, line-separated.
+    unknownlist.txt - a list of ensembl names (~100) which are randomly
+                    selected, line-separated.
+
+    ```python cross.py Ensembl2Reactome.txt knownlist.txt unknownlist.txt

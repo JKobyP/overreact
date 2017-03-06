@@ -53,9 +53,10 @@ def BFS(start, depth, goallist):
         for n in level:
             for goal in goallist:
                 if n.stid == goal.stid:
-                    return levelnum
+                    return levelnum, goal.stid
             else:
                 successors.extend(n.getSubPaths())
                 successors.extend(n.getParents())
         olist.append(successors)
         levelnum = levelnum + 1
+    return None, None
